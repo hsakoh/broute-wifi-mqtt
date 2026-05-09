@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RuntimeIdentifiers>linux-musl-arm64;linux-musl-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BRouteController\BRouteController.csproj" />
+    <ProjectReference Include="..\HomeAssistant\HomeAssistantAddOn.Core\HomeAssistantAddOn.Core.csproj" />
+    <ProjectReference Include="..\HomeAssistant\HomeAssistantAddOn.Mqtt\HomeAssistantAddOn.Mqtt.csproj" />
+  </ItemGroup>
+
+</Project>

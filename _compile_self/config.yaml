@@ -1,0 +1,46 @@
+name: "BRoute-WiFi-Mqtt"
+description: "Wi-Fi経由でECHONETLiteプロトコルを通じて、第2世代低圧スマート電力量メータをHome AssistantのMQTTにデバイス/センサーとして統合するアドオン"
+version: "0.0.1"
+slug: "broute_wifi_mqtt"
+url: "https://github.com/hsakoh/broute-wifi-mqtt"
+startup: application
+boot: manual
+init: false
+arch:
+  - aarch64
+  - amd64
+host_network: true
+services:
+  - 'mqtt:need'
+options:
+  BRoute:
+    NetworkInterfaceName: 'eth0'
+    InstantaneousValueInterval: '00:01:10'
+    PropertyReadTimeout: '00:00:05'
+    PropertyReadMaxRetryAttempts: 3
+    PropertyReadRetryDelay: '00:00:05'
+    ContinuePollingOnError: true
+  Mqtt:
+    AutoConfig: true
+    Host: ''
+    Port: 1883
+    Id: ''
+    Pw: ''
+    Tls: false
+  LogLevel: 'Information'
+schema:
+  BRoute:
+    NetworkInterfaceName: str
+    InstantaneousValueInterval: str
+    PropertyReadTimeout: str
+    PropertyReadMaxRetryAttempts: int
+    PropertyReadRetryDelay: str
+    ContinuePollingOnError: bool
+  Mqtt:
+    AutoConfig: bool
+    Host: str?
+    Port: "int(0,65535)?"
+    Id: str?
+    Pw: password?
+    Tls: bool?
+  LogLevel: list(Trace|Debug|Information|Warning|Error|Critical|None)

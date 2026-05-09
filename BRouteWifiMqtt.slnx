@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/EchonetLite/">
+    <Project Path="src/EchonetLite/EchoDotNetLite.Specifications/EchoDotNetLite.Specifications.csproj" />
+    <Project Path="src/EchonetLite/EchoDotNetLite/EchoDotNetLite.csproj" />
+    <Project Path="src/EchonetLite/EchoDotNetLiteWiFiBridge/EchoDotNetLiteWiFiBridge.csproj" />
+  </Folder>
+  <Folder Name="/HomeAssistant/">
+    <Project Path="src/HomeAssistant/HomeAssistantAddOn.Core/HomeAssistantAddOn.Core.csproj" />
+    <Project Path="src/HomeAssistant/HomeAssistantAddOn.Mqtt/HomeAssistantAddOn.Mqtt.csproj" />
+  </Folder>
+  <Project Path="src/BRouteController/BRouteController.csproj" />
+  <Project Path="src/BRouteWifiMqttApp/BRouteWifiMqttApp.csproj" />
+  <Project Path="src/SmartMeterEmulator/SmartMeterEmulator.csproj" />
+</Solution>

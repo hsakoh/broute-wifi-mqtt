@@ -1,0 +1,50 @@
+{
+  "Version": "1.14",
+  "AppendixRelease": "R",
+  "プロファイル": [
+    {
+      "ClassGroupCode": "0x0E",
+      "ClassGroupNameOfficial": "プロファイルクラスグループ",
+      "ClassGroupName": "プロファイル",
+      "SuperClass": "プロファイルオブジェクトスーパークラス",
+      "ClassList": [
+        {
+          "Status": true,
+          "ClassCode": "0xF0",
+          "ClassNameOfficial": "ノードプロファイル",
+          "ClassName": "ノードプロファイル"
+        }
+      ]
+    }
+  ],
+  "機器": [
+    {
+      "ClassGroupCode": "0x02",
+      "ClassGroupNameOfficial": "住宅・設備関連機器クラスグループ",
+      "ClassGroupName": "住宅設備関連機器",
+      "SuperClass": "機器オブジェクトスーパークラス",
+      "ClassList": [
+        {
+          "Status": true,
+          "ClassCode": "0x88",
+          "ClassNameOfficial": "低圧スマート電力量メータ",
+          "ClassName": "低圧スマート電力量メータ"
+        }
+      ]
+    },
+    {
+      "ClassGroupCode": "0x05",
+      "ClassGroupNameOfficial": "管理・操作関連機器クラスグループ",
+      "ClassGroupName": "管理操作関連機器",
+      "SuperClass": "機器オブジェクトスーパークラス",
+      "ClassList": [
+        {
+          "Status": true,
+          "ClassCode": "0xFF",
+          "ClassNameOfficial": "コントローラ",
+          "ClassName": "コントローラ"
+        }
+      ]
+    }
+  ]
+}
