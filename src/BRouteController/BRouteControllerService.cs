@@ -190,7 +190,7 @@ public class BRouteControllerService : IDisposable
             _logger.LogWarning("プロパティ値読み出し リトライオーバー");
             throw new ApplicationException("プロパティ値読み出し リトライオーバー");
         }
-        await Task.Delay(TimeSpan.FromSeconds(2));
+        await Task.Delay(_optionsMonitor.CurrentValue.PropertyReadIntervalDelay);
     }
 
     private async Task InitializeMeterAsync(EchoNode node, CancellationToken ct = default)
@@ -290,7 +290,7 @@ public class BRouteControllerService : IDisposable
         if (sender is not EchoPropertyInstance echoPropertyInstance)
             return;
 
-        _logger.LogInformation("EchoProperty Change {Property}", echoPropertyInstance.GetDebugString());
+        _logger.LogDebug("EchoProperty Change {Property}", echoPropertyInstance.GetDebugString());
 
         // どのメーターのプロパティか特定
         低圧スマート電力量メータ? meter = null;

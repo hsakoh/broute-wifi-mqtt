@@ -184,6 +184,12 @@ public class EchonetServer
 
     private async Task HandleGetAsync(string senderAddress, ushort tid, EDATA1 edata)
     {
+        _logger.LogInformation("GET 要求受信: {Address} SEOJ={SEOJ} DEOJ={DEOJ} EPCs=[{EPCs}]",
+            senderAddress,
+            $"{edata.SEOJ.ClassGroupCode:X2}{edata.SEOJ.ClassCode:X2}{edata.SEOJ.InstanceCode:X2}",
+            $"{edata.DEOJ.ClassGroupCode:X2}{edata.DEOJ.ClassCode:X2}{edata.DEOJ.InstanceCode:X2}",
+            string.Join(", ", (edata.OPCList ?? []).Select(p => $"0x{p.EPC:X2}")));
+
         bool hasError = false;
         var responseList = new List<PropertyRequest>();
 
@@ -231,7 +237,9 @@ public class EchonetServer
         var esv = hasError ? ESV.Get_SNA : ESV.Get_Res;
         var responseFrame = BuildFrame(tid, edata.DEOJ, edata.SEOJ, esv, responseList);
 
-        _logger.LogDebug("Get 応答: {Address} ESV={ESV}", senderAddress, esv);
+        _logger.LogInformation("GET 応答送信: {Address} ESV={ESV} EPCs=[{EPCs}]",
+            senderAddress, esv,
+            string.Join(", ", responseList.Select(p => $"0x{p.EPC:X2}")));
         await _wifiClient.RequestAsync(senderAddress, FrameSerializer.Serialize(responseFrame));
     }
 
