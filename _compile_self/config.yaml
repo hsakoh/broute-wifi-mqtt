@@ -14,7 +14,7 @@ services:
   - 'mqtt:need'
 options:
   BRoute:
-    NetworkInterfaceName: 'eth0'
+    NetworkInterfaceName: 'auto'
     InstantaneousValueInterval: '00:01:10'
     PropertyReadTimeout: '00:00:05'
     PropertyReadMaxRetryAttempts: 3
